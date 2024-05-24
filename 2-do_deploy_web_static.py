@@ -29,7 +29,7 @@ def do_deploy(archive_path):
 
         # Uncompress the archive to the folder
         run('mkdir -p {}/{}/'.format(path, name))
-        run('tar -zxf /tmp/{} -C {}/{}'.format(file_name, path, name))
+        run('tar -zxf /tmp/{} -C {}{}'.format(file_name, path, name))
 
         # Delete the archive from the web server
         run('rm /tmp/{}'.format(file_name))
@@ -39,7 +39,7 @@ def do_deploy(archive_path):
         run('rm {}'.format(sym_path))
 
         # Create a new the symbolic link
-        run('ln -s {}/{}/ {}'.format(path, name, sym_path))
+        run('ln -s {}{}/ {}'.format(path, name, sym_path))
 
         return True
     except Exception as e:
