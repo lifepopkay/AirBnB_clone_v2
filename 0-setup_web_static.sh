@@ -22,7 +22,7 @@ sudo echo "<html>
 </html>" | sudo tee /data/web_static/releases/test/index.html
 
 # Create a symbolic link, forcefully
-sudo ln -sfn /data/web_static/releases/test/ /data/web_static/current
+sudo ln -sf /data/web_static/releases/test/ /data/web_static/current
 
 # Give ownership of /data/ to the ubuntu user and group recursively
 sudo chown -R ubuntu:ubuntu /data/
@@ -31,10 +31,7 @@ sudo chown -R ubuntu:ubuntu /data/
 sudo echo "
 server {
     listen 80 default_server;
-    listen [::]:80 default_server;
     server_name localhost;
-    root /var/www/html;
-    index index.html index.htm index.nginx-debian.html;
 
     location /hbnb_static {
         alias /data/web_static/current;
