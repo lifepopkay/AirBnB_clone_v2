@@ -16,7 +16,7 @@ def do_deploy(archive_path):
         an error occurs - False.
         Otherwise - True.
     """
-    if os.path.isfile(archive_path) is False:
+    if not os.path.exists(archive_path) is False:
         return False
 
     try:
@@ -28,7 +28,7 @@ def do_deploy(archive_path):
         put(archive_path, '/tmp/')
 
         # Uncompress the archive to the folder
-        run('mkdir -p {}/{}/'.format(path, name))
+        run('mkdir -p {}{}/'.format(path, name))
         run('tar -zxf /tmp/{} -C {}{}'.format(file_name, path, name))
 
         # Delete the archive from the web server
