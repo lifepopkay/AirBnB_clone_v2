@@ -8,7 +8,7 @@ fab -f 100-clean_web_static.py do_clean:number=2
 import os
 from fabric.api import *
 
-env.hosts = ['52.87.155.66', '54.89.109.87']
+env.hosts = ['35.153.51.52', '34.229.189.140']
 
 
 def do_clean(number=0):
@@ -21,7 +21,6 @@ def do_clean(number=0):
     """
     number = 1 if int(number) == 0 else int(number)
 
-   
     archives = sorted(os.listdir("versions"))
     [archives.pop() for i in range(number)]
     with lcd("versions"):
