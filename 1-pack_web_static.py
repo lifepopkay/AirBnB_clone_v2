@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 #compress a file before sending
 from fabric.api import run, local
 from datetime import datetime
