@@ -1,4 +1,4 @@
-#!/usr/bin/pythons
+#!/usr/bin/python3
 """
     a script that starts
     flask web application
