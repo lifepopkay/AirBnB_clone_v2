@@ -33,7 +33,7 @@ def default_display():
 
 @app.route("/python/<text>", strict_slashes=False)
 def python_display(text='is cool'):
-    return "Python  " + text.replace('_', ' ')
+    return "Python " + text.replace('_', ' ')
 
 
 if __name__ == "__main__":

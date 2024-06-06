@@ -14,7 +14,7 @@ app = Flask(__name__)
 
 @app.route("/", strict_slashes=False)
 def hello_hbnb():
-    return "<p>Hello HBNB!</p>"
+    return "Hello HBNB!"
 
 
 @app.route("/hbnb", strict_slashes=False)
@@ -34,7 +34,7 @@ def default_display():
 
 @app.route("/python/<text>", strict_slashes=False)
 def python_display(text='is cool'):
-    return "python  " + text.replace('_', ' ')
+    return "Python " + text.replace('_', ' ')
 
 
 @app.route("/number/<int:n>", strict_slashes=False)
