@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+ #!/usr/bin/python3
 """
     a script that starts
     flask web application
@@ -6,6 +6,7 @@
             Hello HBNB!
 """
 from flask import Flask
+from flask import render_template
 
 
 app = Flask(__name__)
@@ -30,6 +31,20 @@ def c_display(text):
 @app.route("/python/<text>", strict_slashes=False)
 def python_display(text='is cool'):
     return "python  " + text.replace('_', ' ')
+
+
+@app.route("/number_template/<int:n>", strict_slashes=False)
+def digit_temp(n):
+    return render_template('5-number.html', number=n)
+
+
+@app.route("/number_odd_or_even/<int:n>", strict_slashes=False)
+def number_odd_or_even(n):
+    if n % 2 == 0:
+        num_type = "even"
+    else:
+        num_type = "odd"
+    return render_template('6-number_odd_or_even.html', number=n, num_type=num_type)
 
 
 if __name__ == "__main__":
