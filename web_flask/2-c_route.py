@@ -20,6 +20,7 @@ def hello_hbnb():
 def hbnb():
     return "HBNB"
 
+
 @app.route("/c/<text>", strict_slashes=False)
 def text_to_display(text):
     return f"C " + text.replace('_', ' ')

@@ -1,4 +1,4 @@
- #!/usr/bin/python3
+#!/usr/bin/python3
 """
     a script that starts
     flask web application
@@ -41,10 +41,11 @@ def digit_temp(n):
 @app.route("/number_odd_or_even/<int:n>", strict_slashes=False)
 def number_odd_or_even(n):
     if n % 2 == 0:
-        num_type = "even"
+        t = "even"
     else:
-        num_type = "odd"
-    return render_template('6-number_odd_or_even.html', number=n, num_type=num_type)
+        t = "odd"
+    return render_template('6-number_odd_or_even.html',
+                            number=n, nt=t)
 
 
 if __name__ == "__main__":
