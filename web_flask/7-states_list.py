@@ -20,7 +20,7 @@ def states_list():
 
 
 @app.teardown_appcontext
-def close_session(exception):
+def teardown_db(exception):
     """Close the storage"""
     storage.close()
 
