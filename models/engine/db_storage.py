@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 
 import models
 from sqlalchemy.ext.declarative import declarative_base
