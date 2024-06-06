@@ -57,7 +57,7 @@ class Db_storage():
                                                 City,
                                                 Amenity,
                                                 Review,
-                                                Place),all()
+                                                Place).all()
         for cls_ in query_result:
             cls_key = cls.__class__.__name__ + '.' + cls.id
             objects[cls_key] = cls
