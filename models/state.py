@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """Defines the State class."""
-import models
+from models import *
 from os import getenv
 from models.base_model import Base, BaseModel
 from models.city import City
