@@ -2,9 +2,10 @@
 """Defines the Review class."""
 from models.base_model import Base
 from models.base_model import BaseModel
-from sqlalchemy import Column, ForeignKey, String
+from sqlalchemy import Column
+from sqlalchemy import ForeignKey
+from sqlalchemy import String
 from sqlalchemy.orm import relationship
-from os import getenv
 
 
 class Review(BaseModel, Base):
@@ -16,16 +17,7 @@ class Review(BaseModel, Base):
         place_id (sqlalchemy String): The review's place id.
         user_id (sqlalchemy String): The review's user id.
     """
-    if getenv("HBNB_TYPE_STORAGE") != "db":
-        __tablename__ = "reviews"
-        text = Column(String(1024), nullable=False)
-        place_id = Column(String(60), ForeignKey("places.id"), nullable=False)
-        user_id = Column(String(60), ForeignKey("users.id"), nullable=False)
-    else:
-        place_id = ""
-        user_id = ""
-        text = ""
-        
-    def __init__(self, *args, **kwargs):
-        """initialize Review"""
-        super().__init__(*args, **kwargs)
+    __tablename__ = "reviews"
+    text = Column(String(1024), nullable=False)
+    place_id = Column(String(60), ForeignKey("places.id"), nullable=False)
+    user_id = Column(String(60), ForeignKey("users.id"), nullable=False)
