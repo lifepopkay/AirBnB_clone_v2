@@ -1,14 +1,21 @@
 <!DOCTYPE html>
-<HTML lang="en">
-  <HEAD>
-    <TITLE>HBNB</TITLE>
-  </HEAD>
-  <BODY>
-    <H1>{{Table}}</H1>
-    <UL>
+<html lang="en">
+  <head>
+    <title>HBNB</title>
+  </head>
+  <body>
+    <h1>{{Table}}</h1>
+    <ul>
       {% for id, name in items | dictsort(false, 'value') %}
-      <LI>{{ id }}: <B>{{ name }}</B></LI>
+      <li>
+        {{ id }}: <b>{{ name }}</b>
+        <ul>
+          {% for id, name in state.cities | dictsort(false, 'value') %}
+          <li>{{ id}}: <b>{{ name }}</b></li>
+          {% endfor %}
+        </ul>
+      </li>
       {% endfor %}
-    </UL>
-  </BODY>
-</HTML>
+    </ul>
+  </body>
+</html>
