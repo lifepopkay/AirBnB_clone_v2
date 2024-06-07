@@ -29,7 +29,6 @@ class BaseModel:
                 if key != "__class__":
                     setattr(self, key, value)
 
-
     def delete(self):
         """Delete the current instance from storage."""
         models.storage.delete(self)
