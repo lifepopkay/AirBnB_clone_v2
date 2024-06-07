@@ -22,7 +22,7 @@ if models.storage_t == 'db':
 class Place(BaseModel, Base):
     """Representation of Place """
  
-    __tablename__ = 'places'
+__tablename__ = 'places'
     city_id = Column(String(60), ForeignKey('cities.id'), nullable=False)
     user_id = Column(String(60), ForeignKey('users.id'), nullable=False)        name = Column(String(128), nullable=False)
     description = Column(String(1024), nullable=True)
@@ -36,6 +36,7 @@ class Place(BaseModel, Base):
     amenities = relationship("Amenity", secondary="place_amenity",
                                  backref="place_amenities",
                                  viewonly=False)
+
     
     def __init__(self, *args, **kwargs):
         """initializes Place"""
