@@ -11,13 +11,14 @@ from models import storage
 app = Flask(__name__)
 
 
-@app.route("/states_list", strict_slashes=False)
-def states_list():
-    """display a HTML page"""
-    states = list(storage.all(State).values())
-    sort_states = sorted(states, key=lambda x: x.name)
-    render_template('7-states_list.html',
-                    state=sort_states)
+@app.route('/states_list', strict_slashes=False)
+def display_html():
+    """ Function called with /states_list route """
+    states = storage.all(State)
+    dict_to_html = {value.id: value.name for value in states.values()}
+    return render_template('7-states_list.html',
+                           Table="States",
+                           items=dict_to_html)
 
 
 @app.teardown_appcontext
