@@ -83,4 +83,4 @@ class Db_storage:
 
     def close(self):
         """Close the working SQLAlchemy session."""
-        self.__session.remove()
+        self.__session.close()
