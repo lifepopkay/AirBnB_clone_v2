@@ -2,11 +2,9 @@
 """Defines the State class."""
 import models
 from os import getenv
-from models.base_model import Base
-from models.base_model import BaseModel
+from models.base_model import Base, BaseModel
 from models.city import City
-from sqlalchemy import Column
-from sqlalchemy import String
+from sqlalchemy import Column, String
 from sqlalchemy.orm import relationship
 
 
@@ -18,9 +16,16 @@ class State(BaseModel, Base):
         name (sqlalchemy String): The name of the State.
         cities (sqlalchemy relationship): The State-City relationship.
     """
-    __tablename__ = "states"
-    name = Column(String(128), nullable=False)
-    cities = relationship("City",  backref="state", cascade="delete")
+    if getenv("HBNB_TYPE_STORAGE") != "db":
+        __tablename__ = "states"
+        name = Column(String(128), nullable=False)
+        cities = relationship("City",  backref="state", cascade="delete")
+    else:
+        name = ""
+        
+    def __init__(self, *args, **kwargs):
+        """initialize State"""
+        super().__init__(*args, **kwargs)
 
     if getenv("HBNB_TYPE_STORAGE") != "db":
         @property
